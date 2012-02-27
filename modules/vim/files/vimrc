@@ -82,3 +82,9 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Improve up/down movement on wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+
+
