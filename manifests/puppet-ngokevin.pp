@@ -8,7 +8,7 @@ Exec {
     path => "/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin",
 }
 
-class ngokevin {
+class puppet-ngokevin {
     class {
         init: before => Class[apt];
         apt: require => Class[init];
@@ -26,4 +26,4 @@ class ngokevin {
     }
 }
 
-include ngokevin
+include puppet-ngokevin

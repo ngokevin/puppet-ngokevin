@@ -9,7 +9,7 @@ class apache2 {
 
             file { "ngokevin.conf":
                 path => "/etc/apache2/sites-enabled/ngokevin.conf",
-                source => "$PROJ_DIR/puppet/files/etc/apache2/sites-available/ngokevin.conf",
+                source => "$PUPPET_DIR/files/etc/apache2/sites-enabled/ngokevin.conf",
                 owner => "root", group => "root", mode => 0644,
                 require => Package['apache2-dev'];
             }

@@ -6,19 +6,22 @@ class vim {
         ensure => installed;
     }
 
-    file { "/etc/vim/vimrc":
+    file { "etc_vimrc":
+        path => "/etc/vim/vimrc",
         require => Package["vim"],
         source => "$VIMRC",
         owner => root, group => root, mode => 644;
     }
 
-    file { "/root/.vimrc":
+    file { "root_vimrc":
+        path => "/root/.vimrc",
         require => Package["vim"],
         source => "$VIMRC",
         owner => root, group => root, mode => 644;
     }
 
-    file { "$USER_DIR/.vimrc":
+    file { "user_vimrc":
+        path => "$USER_DIR/.vimrc",
         require => Package["vim"],
         source => "$VIMRC",
         owner => "$USER", group => "$USER", mode => 644;
