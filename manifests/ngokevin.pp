@@ -11,9 +11,18 @@ Exec {
 class ngokevin {
     class {
         init: before => Class[apt];
-        apt: before => Class[bash];
-        bash: before => Class[vim];
-        vim: ;
+        apt: require => Class[init];
+        bash: require => Class[init];
+        vim: require => Class[init];
+        git: require => Class[init];
+        python: require => Class[init];
+
+        wok: require => [Class[git], Class[python]];
+        ngokevin: require => Class[wok];
+        apache2: require => Class[ngokevin];
+
+        beets: require => [Class[git], Class[python]];
+        subsonic: require => Class[apt];
     }
 }
 

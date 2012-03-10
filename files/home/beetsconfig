@@ -1,0 +1,21 @@
+[beets]
+directory: ~/Music
+library: ~/Music/musiclibrary.blb
+import_copy: yes
+import_write: yes
+import_resume: yes
+import_art: yes
+import_log: ~/.beets.log
+colors: yes
+plugins: bpd lastid
+
+[paths]
+default: $artist/$artist - $title
+compilation: $artist/$artist - $title
+comp: $artist/$artist - $title
+singleton: $artist/$artist - $title
+
+[bpd]
+host: 127.0.0.1
+port: 8080
+password: bob123bob

@@ -8,26 +8,20 @@ class vim {
 
     file { "/etc/vim/vimrc":
         require => Package["vim"],
-        source => "${VIMRC}",
-        owner => root,
-        group => root,
-        mode => 644;
+        source => "$VIMRC",
+        owner => root, group => root, mode => 644;
     }
 
     file { "/root/.vimrc":
         require => Package["vim"],
-        source => "${VIMRC}",
-        owner => root,
-        group => root,
-        mode => 644;
+        source => "$VIMRC",
+        owner => root, group => root, mode => 644;
     }
 
     file { "$USER_DIR/.vimrc":
         require => Package["vim"],
         source => "$VIMRC",
-        owner => "$USER",
-        group => "$USER",
-        mode => 644;
+        owner => "$USER", group => "$USER", mode => 644;
     }
 
 }
