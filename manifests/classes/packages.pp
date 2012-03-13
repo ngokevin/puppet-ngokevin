@@ -1,6 +1,6 @@
 class packages {
 
-    package { "weechat":
+    package { "weechat-curses":
         ensure => installed;
     }
 

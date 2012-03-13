@@ -15,6 +15,8 @@ class puppet-ngokevin {
     class {
         init: before => Class[apt];
         apt: require => Class[init];
+        packages: require => Class[apt];
+
         bash: require => Class[init];
         vim: require => Class[init];
         git: require => Class[init];
