@@ -21,7 +21,8 @@ class puppet-ngokevin {
         python: require => Class[init];
         tzdata: require => Class[init];
 
-        wok: require => [Class[git], Class[python]];
+        pil: require => Class[python];
+        wok: require => [Class[git], Class[python], Class[pil]];
         ngokevin: require => Class[wok];
         apache2: require => Class[ngokevin];
 
