@@ -1,0 +1,8 @@
+
+noremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v>
+
+noremap j 10j
+noremap k 10k
+
+set hintchars=asdfjklghweriop
