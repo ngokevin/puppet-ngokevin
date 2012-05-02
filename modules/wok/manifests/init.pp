@@ -1,5 +1,4 @@
 class wok {
-
     exec { "wok_clone":
         command => "git clone git@github.com:mythmon/wok",
         cwd => "$USER_DIR/Code",
@@ -15,5 +14,4 @@ class wok {
         ],
         user => root;
     }
-
 }

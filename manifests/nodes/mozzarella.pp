@@ -12,4 +12,5 @@ node "mozzarella" inherits laptop {
     include nvidia
     include synapse
     include terminator
+    include vagrant
 }
