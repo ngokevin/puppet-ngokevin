@@ -17,6 +17,7 @@ node core {
   include apt
   include git
   include python
+  include ruby
   include vim
 }
 
