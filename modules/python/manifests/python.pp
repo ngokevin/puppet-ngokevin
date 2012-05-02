@@ -9,7 +9,7 @@ class python {
     }
 
     exec { "pip":
-        command => "pip install -r $PUPPET_DIR/pip",
+        command => "pip install -r $PUPPET_DIR/modules/python/pip-packages",
         require => Package["python-pip"],
         timeout => 0,
         user => root;

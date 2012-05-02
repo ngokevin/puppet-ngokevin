@@ -1,5 +1,4 @@
 class init {
-
     exec { "update_apt":
         command => "sudo apt-get update",
     }
@@ -10,6 +9,5 @@ class init {
             Exec["update_apt"],
         ];
     }
-
 }
 

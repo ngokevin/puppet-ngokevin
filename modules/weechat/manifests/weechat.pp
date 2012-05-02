@@ -1,4 +1,4 @@
-class packages {
+class weechat {
 
     package { "weechat-curses":
         ensure => installed;
