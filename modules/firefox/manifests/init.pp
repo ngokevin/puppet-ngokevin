@@ -8,7 +8,7 @@ class firefox {
         user => root;
     }
 
-    package { "firefox-trunk"
+    package { "firefox-trunk":
         ensure => latest,
         require => Exec["firefox_nightly_repo"];
     }

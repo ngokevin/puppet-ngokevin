@@ -1,19 +1,35 @@
+exec { "update_apt":
+    command => "sudo apt-get update",
+}
+
+package { "python-software-properties":
+    ensure => present,
+    require => [
+        Exec["update_apt"],
+    ];
+}
+
+Exec {
+    path => "/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin",
+}
+
 node core {
   include apt
-  include bash
   include git
-  include mosh
-  include pil
   include python
-  include weechat
-  include wok
   include vim
 }
 
 node base inherits core {
+  include bash
+  include mosh
+  include pil
+  include wok
 }
 
 node server inherits base {
+  include apache2
+  include weechat
 }
 
 node gui inherits base {

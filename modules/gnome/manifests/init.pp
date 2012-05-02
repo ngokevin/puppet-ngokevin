@@ -1,7 +1,9 @@
 class gnome {
-
     package { "gnome-shell":
-        ensure => installed;
+        ensure => latest;
     }
 
+    package { "myunity":
+        ensure => latest;
+    }
 }
