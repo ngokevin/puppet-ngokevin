@@ -1,6 +1,6 @@
 class vim {
 
-    $VIMRC = "$PUPPET_DIR/files/etc/vim/vimrc"
+    $VIMRC = "$PUPPET_DIR/modules/vim/files/etc/vim/vimrc"
 
     package { "vim":
         ensure => installed;

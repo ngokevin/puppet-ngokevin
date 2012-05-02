@@ -18,7 +18,7 @@ class beets {
 
     file { "config":
         path => "$USER_DIR/.beetsconfig",
-        source => "$PUPPET_DIR/files/home/beetsconfig",
+        source => "$PUPPET_DIR/modules/beets/files/home/beetsconfig",
         require => [
             Exec["beets_install"]
         ],

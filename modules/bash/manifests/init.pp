@@ -1,6 +1,6 @@
 class bash {
 
-    $BASHRC = "$PUPPET_DIR/files/home/bashrc"
+    $BASHRC = "$PUPPET_DIR/modules/bash/files/home/bashrc"
 
     file { "root_bashrc":
         path => "/root/.bashrc",

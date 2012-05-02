@@ -16,7 +16,7 @@ class firefox {
     file { "vimperatorrc":
         path => "$USER_DIR/.vimperatorrc",
         require => Package["firefox"],
-        source => "$PUPPET_DIR/files/home/vimperatorrc",
+        source => "$PUPPET_DIR/modules/firefox/files/home/vimperatorrc",
         owner => "$USER", group=> "$USER", mode => 644;
     }
 }

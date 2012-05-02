@@ -1,7 +1,12 @@
 node core {
-  include git
+  include apt
   include bash
+  include git
+  include mosh
+  include pil
   include python
+  include weechat
+  include wok
   include vim
 }
 
