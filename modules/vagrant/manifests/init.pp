@@ -33,4 +33,21 @@ class vagrant {
         ],
         ensure => installed;
     }
+
+    exec { "create_basebox":
+        command => "vagrant basebox define 'ubuntu64' 'ubuntu-11.10-server-amd64'",
+        cwd => $USER_DIR;
+        user => $USER;
+    }
+
+    exec { "get_iso":
+        command => "wget http://releases.ubuntu.com/11.10/ubuntu-11.10-server-amd64.iso",
+        cwd => $USER_DIR;
+        user => $USER;
+    }
+
+    exec { "build_basebox":
+        command => "vagrant basebox define 'ubuntu' 'ubuntu-11.10-server-amd64'",
+        cwd => $USER_DIR;
+        user => $USER;
 }
