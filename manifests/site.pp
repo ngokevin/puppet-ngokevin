@@ -1,3 +1,3 @@
 import "packages.pp"
 import "templates/*.pp"
-import "nodes/*.pp"
+import "nodes/mozzarella.pp"

@@ -26,6 +26,7 @@ node base inherits core {
   include mosh
   include pil
   include wok
+  include vagrant
 }
 
 node server inherits base {
