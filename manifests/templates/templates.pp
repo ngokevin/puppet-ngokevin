@@ -1,5 +1,6 @@
 exec { "update_apt":
-    command => "sudo apt-get update",
+    command => "apt-get update",
+    user => root;
 }
 
 package { "python-software-properties":

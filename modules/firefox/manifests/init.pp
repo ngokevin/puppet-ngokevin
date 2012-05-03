@@ -5,6 +5,7 @@ class firefox {
 
     exec { "firefox_nightly_repo":
         command => "add-apt-repository ppa:ubuntu-mozilla-daily/ppa && apt-get update",
+        returns => [0, 100],
         user => root;
     }
 
