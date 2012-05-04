@@ -27,4 +27,21 @@ class vim {
         owner => "$USER", group => "$USER", mode => 644;
     }
 
+    file {"$USER_DIR/.vim":
+        ensure => directory,
+    }
+
+    file {"$USER_DIR/.vim/ftdetect":
+        ensure => directory,
+        recurse => true,
+        source => "$PUPPET_DIR/modules/vim/files/home/vim/ftdetect",
+        owner => "$USER", group => "$USER", mode => 644;
+    }
+
+    file {"$USER_DIR/.vim/syntax":
+        ensure => directory,
+        recurse => true,
+        source => "$PUPPET_DIR/modules/vim/files/home/vim/syntax",
+        owner => "$USER", group => "$USER", mode => 644;
+    }
 }

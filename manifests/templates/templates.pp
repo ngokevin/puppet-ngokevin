@@ -27,7 +27,6 @@ node base inherits core {
   include mosh
   include pil
   include wok
-  include vagrant
 }
 
 node server inherits base {
@@ -39,6 +38,7 @@ node gui inherits base {
 }
 
 node laptop inherits gui {
+  include cheese
 }
 
 node desktop inherits gui {

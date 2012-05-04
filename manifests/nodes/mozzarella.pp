@@ -13,4 +13,5 @@ node "mozzarella" inherits laptop {
     include synapse
     include terminator
     include vagrant
+    include vlc
 }
