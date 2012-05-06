@@ -1,11 +1,7 @@
 class vagrant {
 
-    case $::architecture {
-        amd64: { $command = "wget http://download.virtualbox.org/virtualbox/4.1.14/VirtualBox-4.1.14-77440-Linux_amd64.run" }
-        default: { $command = "wget http://download.virtualbox.org/virtualbox/4.1.14/VirtualBox-4.1.14-77440-Linux_x86.run" }
-    }
     exec { "virtualbox_download":
-        command => $command,
+        command => "wget http://download.virtualbox.org/virtualbox/4.1.14/VirtualBox-4.1.14-77440-Linux_x86.run" }
         cwd => "/tmp";
     }
 
@@ -14,13 +10,13 @@ class vagrant {
         command => "bash VirtualBox-4.1.14*.run",
         require => [
             Exec["virtualbox_download"],
-        ]
+        ],
         user => root;
     }
 
-    package { "vagrant":
-        provider => gem,
-        ensure => installed;
+    exec { "vagrant":
+        command => "gem install vagrant -v '= 0.8.10'",
+        user => root;
     }
 
     package { "bundler":
@@ -36,23 +32,15 @@ class vagrant {
         ensure => installed;
     }
 
-    case $::architecture {
-        amd64: { $command3 = "wget http://releases.ubuntu.com/11.10/ubuntu-11.10-server-amd64.iso" }
-        default: { $command3 = "wget http://releases.ubuntu.com/11.10/ubuntu-11.10-server-i386.iso" }
-    }
     exec { "get_iso":
-        command => $command3,
+        command => "wget http://releases.ubuntu.com/11.10/ubuntu-11.10-server-i386.iso";
         cwd => $USER_DIR,
-        user => $USER
+        user => $USER,
         timeout => 0,
     }
 
-    case $::architecture {
-        amd64: { $command2 = "vagrant basebox define 'ubuntuamd64' 'ubuntu-11.10-server-amd64'" }
-        default: { $command2 = "vagrant basebox define 'ubuntui386' 'ubuntu-11.10-server-i386'" }
-    }
     exec { "create_basebox":
-        command => $command2,
+        command => "vagrant basebox define 'ubuntui386' 'ubuntu-11.10-server-i386'",
         cwd => $USER_DIR,
         require => [
             Exec["get_iso"],
@@ -60,13 +48,8 @@ class vagrant {
         user => $USER;
     }
 
-
-    case $::architecture {
-        amd64: { $command4 = "vagrant basebox build 'ubuntuamd64'" }
-        default: { $command4 = "vagrant basebox build 'ubuntui386'" }
-    }
     exec { "build_basebox":
-        command => $command4,
+        command => "vagrant basebox build 'ubuntui386'"
         cwd => $USER_DIR,
         require => [
             Exec["create_basebox"],
