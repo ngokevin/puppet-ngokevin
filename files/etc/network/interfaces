@@ -1,0 +1,10 @@
+auto lo
+iface lo inet loopback
+
+auto wlan0
+iface wlan0 inet dhcp
+
+wpa-ap-scan 1
+pre-up sudo /sbin/wpa_supplicant -iwlan0 -c/etc/wpa_supplicant.conf -Dwext -B
+pre-up sleep 5
+post-down sudo killall -q wpa_supplicant
