@@ -1,0 +1,62 @@
+Host milo
+HostName milo.nws.oregonstate.edu
+User ngoke
+
+Host shell
+HostName shell.onid.oregonstate.edu
+User ngoke
+
+Host astro
+HostName astro.nws.oregonstate.edu
+User ngoke
+
+Host droopy
+HostName droopy.nws.oregonstate.edu
+User ngoke
+
+Host dripple
+HostName dripple.nws.oregonstate.edu
+User ngoke
+
+Host spot
+HostName spot.nws.oregonstate.edu
+User ngoke
+
+Host flip
+HostName flip.engr.oregonstate.edu
+User ngoke
+
+Host archer
+HostName archer.dyndns-home.com
+User ngoke
+
+Host ns3jr
+HostName ns3jr.nws.oregonstate.edu
+User ngoke
+
+Host access
+HostName access.cws.oregonstate.edu
+User ngoke
+
+Host poochy
+Hostname poochy.nws.oregonstate.edu
+User ngoke
+
+Host twist
+Hostname twist.osuosl.org
+User ngoke
+
+Host aws
+Hostname ec2-50-112-30-212.us-west-2.compute.amazonaws.com
+User ngoke
+
+Host mothership
+Hostname 98.246.198.68
+Port 2222
+User ngoke
+
+Host mothershiplocal
+Hostname 192.168.1.124
+Port 2222
+User ngoke
+
