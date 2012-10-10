@@ -106,9 +106,6 @@ alias ytdl="youtube-dl --extract-audio --audio-format=mp3 -l"
 alias gs="git status"
 alias term1="rdesktop -g 1000x1000 nws-term1.nws.oregonstate.edu"
 
-export WORKON_HOME=$HOME/.virtualenvs
-source $HOME/.virtualenvwrapper
-
 alias ch="cd ~/Code/chili && workon zamboni"
 alias chshell="./manage.py shell_plus"
 
