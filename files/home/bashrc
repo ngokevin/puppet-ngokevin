@@ -102,7 +102,3 @@ cd(){
 		builtin cd ~ && ls
 	fi
 }
-
-alias push="cd /home/osuaiaa && git pull && git push && wok"
-alias editabout="nano /home/osuaiaa/content/about.mkd"
-alias edithome="nano /home/osuaiaa/content/home"
