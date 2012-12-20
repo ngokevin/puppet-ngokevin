@@ -18,6 +18,13 @@ class git {
         user => "$USER";
     }
 
+    exec { "git_editor":
+        command => "git config --global core.editor 'vim'",
+        require => Package["git"],
+        cwd => "$USER_DIR",
+        user => "$USER";
+    }
+
     exec { "colors":
         command => "git config color.ui true",
         require => Package["git"],
