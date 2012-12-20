@@ -10,7 +10,7 @@ alias sq="git commit -m 'sq' && git rebase -i HEAD~2"
 alias sqnv="git commit -m 'sq' --no-verify && git rebase -i HEAD~2"
 alias sedfiles="find . -type f -print0 | xargs -0 sed -i"
 alias term3="rdesktop -g 1000x1000 nws-term3.nws.oregonstate.edu"
-alias updatealiases="cp ~/.bash_aliases /home/ngoke/Code/puppet-ngokevin/files/home/bashaliases && cd /home/ngoke/Code/puppet-ngokevin && git commit -m 'update aliases' && git pull && git push"
+alias updatealiases="cp ~/.bash_aliases /home/ngoke/Code/puppet-ngokevin/files/home/bashaliases && cd /home/ngoke/Code/puppet-ngokevin && git commit -am 'update aliases' && git pull origin master && git push origin master"
 
 alias ch="cd /home/ngoke/Code/chili"
 alias chjs="cd /home/ngoke/Code/chili/media/js"
