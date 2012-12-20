@@ -1,3 +1,10 @@
+set t_kb=
+fixdel
+
+set nocompatible
+
+"set backspace=2
+
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
 " /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
@@ -33,58 +40,53 @@ endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
-endif
-
-fixdel
+"if has("autocmd")
+"  filetype plugin indent on
+"endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set autowrite		" Automatically save before commands like :next and :make
-set confirm			" Prompt rather than throw error
-set expandtab       " Spaces over hard tabs
-set hidden          " Hide buffers when they are abandoned
+set showcmd		" Show (partial) command in status line.
 set ignorecase		" Do case insensitive matching
-set incsearch		" Incremental search, type /searchtext to search
-set mouse=a			" Enable mouse usage (all modes)
-set nocompatible    " Don't behave like vi
-set number          " Line numbers
-set shiftwidth=4    " 4 space tabs with > and <
-set showcmd		    " Show (partial) command in status line.
 set smartcase		" Do smart case matching
-set tabstop=4       " 4 space tabs
-set t_kb=         " Fix weird backspace issues
+set incsearch		" Incremental search, type /searchtext to search
+set autowrite		" Automatically save before commands like :next and :make
+set hidden          " Hide buffers when they are abandoned
+set expandtab
+set shiftwidth=4
+set tabstop=4
 set vb t_vb=		" Shuts up the beeping
 set virtualedit=all " Move anywhere
+set confirm			" Prompt rather than throw error
 set wildmenu		" Better command-line completion
+set number
 
-" Map escape to jj for easier escaping
-inoremap jj <Esc>
+if has("autocmd")
+	autocmd BufRead,BufNewFile *.html set noautoindent
+endif
 
-" Quick save
+au BufNewFile,BufRead *.less set filetype=less
+
+" Fast saving
 nmap <leader>w :w!<cr>
 
-" Map Y for yanking until EOL
+" Map Y for yankg until EOL
 map Y y$
 
-" Show trailing white space
-syntax on
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-
-" Delete trailing white space on save
 func! DeleteTrailingWS()
     exe "normal mz"
     %s/\s\+$//ge
     exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+
+syntax on
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+
+set foldmethod=indent
+set nofoldenable
+
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Improve up/down movement on wrapped lines
-nnoremap j gj
-nnoremap k gk
-
-
-
+inoremap jj <Esc>
