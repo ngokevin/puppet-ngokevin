@@ -8,12 +8,12 @@ class ngokevin {
     }
 
     exec { "ngokevin_install":
-        command => "bash push",
+        command => "wok",
         cwd => "$USER_DIR/Code/ngokevin",
         require => [
             Exec["ngokevin_clone"],
         ],
-        user => root;
+        user => "$USER";
     }
 
 }
