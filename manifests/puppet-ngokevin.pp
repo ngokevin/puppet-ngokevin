@@ -13,8 +13,8 @@ Exec {
 
 class puppet-ngokevin {
     class {
-        init: before => Class[apt];
-        packages: require => Class[apt];
+        init: before => Class[packages];
+        packages: require => Class[init];
 
         bash: require => Class[init];
         vim: require => Class[init];
@@ -23,6 +23,7 @@ class puppet-ngokevin {
 
         pil: require => Class[python];
         wok: require => [Class[git], Class[python], Class[pil]];
+        ngokevin: require => Class[wok];
     }
 }
 

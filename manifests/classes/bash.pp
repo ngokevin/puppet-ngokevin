@@ -23,7 +23,7 @@ class bash {
 
     file { "user_bashaliases":
         path => "$USER_DIR/.bash_aliases",
-        source => "$BASHRCALIASES",
+        source => "$BASHALIASES",
         owner => "$USER", group => "$USER", mode => 644;
     }
 

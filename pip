@@ -6,3 +6,5 @@ docutils
 Pygments
 
 gunicorn
+requests
+wok
