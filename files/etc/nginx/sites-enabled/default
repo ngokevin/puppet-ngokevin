@@ -11,29 +11,91 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 #
+
 server {
 	server_name ngokevin.com;
-	root /home/ngoke/Code/ngokevin/output;
+	root /home/ngoke/Code/ngokevin/_output;
 	index index.html;
+
+    location ~ ^/~(.+?)(/.*)?$ {
+        alias /home/$1/public_html$2;
+        index  index.html index.htm;
+        autoindex on;
+    }
+
+    rewrite /rss/index.xml /rss;
 }
 
 server {
 	server_name drawnothing.ngokevin.com;
-	root /home/ngoke/public_html/draw_nothing;
+	root /home/ngoke/Code/draw_nothing;
 	index index.html;
 }
 
 server {
 	server_name minimalist.ngokevin.com;
-	root /home/ngoke/public_html/fireshirt;
+	root /home/ngoke/Code/minimalist;
+	index index.html;
+}
+
+server {
+	server_name lucid.ngokevin.com;
+	root /home/ngoke/Code/lucid;
 	index index.html;
 }
 
 server {
 	server_name grandbox.ngokevin.com;
-	root /home/ngoke/public_html/grandbox;
+	root /home/ngoke/Code/grandbox;
 	index index.html;
 }
+
+server {
+	server_name heidi.ngokevin.com;
+	root /home/ngoke/Code/heidi/output;
+	index index.html;
+}
+
+server {
+	server_name sriracha.ngokevin.com;
+	root /home/ngoke/Code/sriracha/output;
+	index index.html;
+}
+
+server {
+	server_name gentleman.ngokevin.com;
+	root /home/ngoke/Code/mentlegen/;
+	index index.html;
+}
+
+
+server {
+	server_name ozamataz.ngokevin.com;
+	root /home/ngoke/Code/ozamataz/;
+	index index.html;
+}
+
+server {
+	server_name iconic.ngokevin.com;
+	root /home/ngoke/public_html/nocountryforoldmanifests/src;
+	index index.html;
+}
+
+server {
+	server_name fox.ngokevin.com;
+	root /home/ngoke/Code/foxhound;
+	index index.html;
+
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Expose-Headers Accept-Ranges;
+    add_header Access-Control-Expose-Headers Content-Encoding;
+    add_header Access-Control-Expose-Headers Content-Length;
+    add_header Access-Control-Expose-Headers Content-Range;
+    add_header accept_ranges bytes;
+    add_header Content-Range bytes;
+    add_header Range bytes=0-500000;
+}
+
 
 server {
     server_name versuspoker.ngokevin.com;
