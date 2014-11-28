@@ -33,6 +33,12 @@ server {
 }
 
 server {
+	server_name heidifly.us;
+	root /home/ngoke/Code/heidifly/output;
+	index index.html;
+}
+
+server {
 	server_name minimalist.ngokevin.com;
 	root /home/ngoke/Code/minimalist;
 	index index.html;
@@ -53,6 +59,24 @@ server {
 server {
 	server_name heidi.ngokevin.com;
 	root /home/ngoke/Code/heidi/output;
+	index index.html;
+}
+
+server {
+	server_name hostedheidi.ngokevin.com;
+	root /home/ngoke/Code/adelheid/output;
+	index index.html;
+}
+
+server {
+	server_name adelheid.ngokevin.com;
+	root /home/ngoke/Code/adelheid;
+	index index.html;
+}
+
+server {
+	server_name ataleabout.us;
+	root /home/ngoke/Code/adelheid;
 	index index.html;
 }
 
@@ -79,6 +103,17 @@ server {
 	server_name iconic.ngokevin.com;
 	root /home/ngoke/public_html/nocountryforoldmanifests/src;
 	index index.html;
+}
+
+server {
+    listen 443;
+	server_name shuvit.ngokevin.com;
+	root /home/ngoke/Code/shuvit/www;
+	index index.html;
+
+    ssl on;
+    ssl_certificate /etc/nginx/ssl/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/server.key;
 }
 
 server {
